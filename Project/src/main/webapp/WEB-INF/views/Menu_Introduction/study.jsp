@@ -40,110 +40,107 @@
 				</thead>
 				<tbody>
 
+				
 					<tr>
 						<td>10</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
-
 					<tr>
 						<td>9</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
-
 					<tr>
 						<td>8</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
-
 					<tr>
 						<td>7</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
 					<tr>
 						<td>6</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
-
 					<tr>
-
 						<td>5</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
-
 						<td>4</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
-
 						<td>3</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
-
 						<td>1</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>매주 일요일 11시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
-
+					<tr>
+						<td>1</td>
+						<td>스터디</td>
+						<td>spring<small class="d-block">스프링 스터디 모집 </small>
+						</td>
+						<td>2022-11-25</td>
+						<td>매주 일요일 11시</td>
+						<td><a href="detail" class="more">상세보기</a></td>
+					</tr>
+			
 				</tbody>
 			</table>
 		</div>

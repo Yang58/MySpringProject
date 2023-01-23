@@ -20,7 +20,7 @@
 		src="../resources/images/cate_ex_image.png" />
 </div>
 
-<div class="content" >
+<div class="content">
 
 	<div class="container">
 		<h2 class="mb-5 text-black text-bold">음식</h2>
@@ -42,54 +42,53 @@
 
 					<tr>
 						<td>10</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
-
 					</tr>
 
 					<tr>
 						<td>9</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 
 					</tr>
 
 					<tr>
 						<td>8</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 
 					</tr>
 
 					<tr>
 						<td>7</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 
 					</tr>
 					<tr>
 						<td>6</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 
 					</tr>
@@ -107,40 +106,40 @@
 					<tr>
 
 						<td>4</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
 
 						<td>3</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 					<tr>
 
 						<td>1</td>
-						<td>레저</td>
-						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
+						<td>음식</td>
+						<td>서울 맛집 투어<small class="d-block">서울 맛집 찾아...</small>
 						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 3시</td>
+						<td>2022-07-21</td>
+						<td>매주 토요일 7시</td>
 						<td><a href="detail" class="more">상세보기</a></td>
 					</tr>
 
