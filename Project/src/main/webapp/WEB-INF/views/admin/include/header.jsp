@@ -59,7 +59,7 @@
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">동호회소개</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="leisure">레져</a></li>
+								<li><a class="dropdown-item" href="/home/leisure">레져</a></li>
 								<li><a class="dropdown-item" href="food">음식</a></li>
 								<li><a class="dropdown-item" href="exercise">운동</a></li>
 								<li><a class="dropdown-item" href="study">스터디</a></li>
@@ -81,13 +81,15 @@
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">마이페이지</a>
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#!"></a></li>
-								<li><a class="dropdown-item" href="#!">로</a></li>
-								<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+								<li><a class="dropdown-item" href="/admin/freeboard">게시판 관리</a></li>
+								<li><a class="dropdown-item" href="/admin/qnaboard">Q&A관리</a></li>
+								<li><a class="dropdown-item" href="/admin/member_registration">신규 회원 등록</a></li>
+								<li><a class="dropdown-item" href="/admin/member_management">회원 관리</a></li>
+								<li><a class="dropdown-item" href="/admin/club_registration">동도회 등록</a></li>
+								<li><a class="dropdown-item" href="/admin/club_management">동호회 관리</a></li>
 							</ul></li>
-			
 						<div id="login"
 							style="position: absolute; top: 0px; right: 150px;">
 							<ul
@@ -97,8 +99,6 @@
 								<a href="#" style="color: black;"><li>로그인</li></a>
 								<li>|</li>
 								<a href="#" style="color: black;"><li>회원가입</li></a>
-								<li>|</li>
-								<a href="/admin/home" style="color: black;"><li>관리자</li></a>
 							</ul>
 						</div>
 					</ul>
