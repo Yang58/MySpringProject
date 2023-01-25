@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Landing Page - Start Bootstrap Theme</title>
+<title>S.F</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
 	href="../resources/assets/favicon.ico" />
@@ -25,6 +25,7 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="../resources/css/styles.css" rel="stylesheet" />
+
 
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -60,9 +61,9 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">동호회소개</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="/home/leisure">레져</a></li>
-								<li><a class="dropdown-item" href="food">음식</a></li>
-								<li><a class="dropdown-item" href="exercise">운동</a></li>
-								<li><a class="dropdown-item" href="study">스터디</a></li>
+								<li><a class="dropdown-item" href="/home/travel">여행</a></li>
+								<li><a class="dropdown-item" href="/home/exercise">운동</a></li>
+								<li><a class="dropdown-item" href="/home/study">스터디</a></li>
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
@@ -81,24 +82,35 @@
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">마이페이지</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#!">회원 정보 관리</a></li>
+								<li><a class="dropdown-item" href="#!">동호회 신청 현황</a></li>
+							</ul></li>
+							
+							<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="/admin/freeboard">게시판 관리</a></li>
 								<li><a class="dropdown-item" href="/admin/qnaboard">Q&A관리</a></li>
 								<li><a class="dropdown-item" href="/admin/member_registration">신규 회원 등록</a></li>
 								<li><a class="dropdown-item" href="/admin/member_management">회원 관리</a></li>
-								<li><a class="dropdown-item" href="/admin/club_registration">동도회 등록</a></li>
+								<li><a class="dropdown-item" href="/admin/club_registration">동호회 등록</a></li>
 								<li><a class="dropdown-item" href="/admin/club_management">동호회 관리</a></li>
 							</ul></li>
+			
 						<div id="login"
 							style="position: absolute; top: 0px; right: 150px;">
 							<ul
 								style="list-style: none; display: flex; text-decoration: none; color: black;">
-								<a href="#" style="color: black;"><li>홈</li></a>
+								<a href="/home/main" style="color: black;"><li>홈</li></a>
 								<li>|</li>
-								<a href="#" style="color: black;"><li>로그인</li></a>
+								<a href="/home/login" style="color: black;"><li>로그인</li></a>
 								<li>|</li>
-								<a href="#" style="color: black;"><li>회원가입</li></a>
+								<a href="/home/join_check" style="color: black;"><li>회원가입</li></a>
+								<li>|</li>
+								<a href="/admin/home" style="color: black;"><li>관리자</li></a>
 							</ul>
 						</div>
 					</ul>

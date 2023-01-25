@@ -91,10 +91,12 @@ a
 												<td class="text-center align-middle">
 													<div class="btn-group align-top">
 														<button class="btn btn-sm btn-outline-secondary "
-															type="button" data-bs-toggle="modal" data-bs-target="#answer-modal">수정</button>
+															type="button" data-bs-toggle="modal"
+															data-bs-target="#edit-modal">수정</button>
 														<button class="btn btn-sm btn-outline-secondary "
-															type="button" data-bs-toggle="modal" data-bs-target="#delete-modal">삭제</button>
-														
+															type="button" data-bs-toggle="modal"
+															data-bs-target="#delete-modal">삭제</button>
+
 													</div>
 												</td>
 											</tr>
@@ -122,135 +124,6 @@ a
 									</ul>
 
 								</div>
-
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<!-- User Form Modal -->
-				<div class="modal fade" role="dialog" tabindex="-1"
-					id="user-form-modal">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Create User</h5>
-								<button type="button" class="close" data-dismiss="modal">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<div class="py-1">
-									<form class="form" novalidate="">
-										<div class="row">
-											<div class="col">
-												<div class="row">
-													<div class="col">
-														<div class="form-group">
-															<label>Full Name</label> <input class="form-control"
-																type="text" name="name" placeholder="John Smith"
-																value="John Smith">
-														</div>
-													</div>
-													<div class="col">
-														<div class="form-group">
-															<label>Username</label> <input class="form-control"
-																type="text" name="username" placeholder="johnny.s"
-																value="johnny.s">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col">
-														<div class="form-group">
-															<label>Email</label> <input class="form-control"
-																type="text" placeholder="user@example.com">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col mb-3">
-														<div class="form-group">
-															<label>About</label>
-															<textarea class="form-control" rows="5"
-																placeholder="My Bio"></textarea>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12 col-sm-6 mb-3">
-												<div class="mb-2">
-													<b>Change Password</b>
-												</div>
-												<div class="row">
-													<div class="col">
-														<div class="form-group">
-															<label>Current Password</label> <input
-																class="form-control" type="password"
-																placeholder="••••••">
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col">
-														<div class="form-group">
-															<label>New Password</label> <input class="form-control"
-																type="password" placeholder="••••••">
-														</div>
-													</div>
-													<div class="col">
-														<div class="form-group">
-															<label>Confirm <span class="d-none d-xl-inline">Password</span></label>
-															<input class="form-control" type="password"
-																placeholder="••••••">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-12 col-sm-5 offset-sm-1 mb-3">
-												<div class="mb-2">
-													<b>Keeping in Touch</b>
-												</div>
-												<div class="row">
-													<div class="col">
-														<label>Email Notifications</label>
-														<div class="custom-controls-stacked px-2">
-															<div class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input"
-																	id="notifications-blog" checked=""> <label
-																	class="custom-control-label" for="notifications-blog">Blog
-																	posts</label>
-															</div>
-															<div class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input"
-																	id="notifications-news" checked=""> <label
-																	class="custom-control-label" for="notifications-news">Newsletter</label>
-															</div>
-															<div class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input"
-																	id="notifications-offers" checked=""> <label
-																	class="custom-control-label" for="notifications-offers">Personal
-																	Offers</label>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col d-flex justify-content-end">
-												<button class="btn btn-primary" type="submit">Save
-													Changes</button>
-											</div>
-										</div>
-									</form>
-
-								</div>
 							</div>
 						</div>
 					</div>
@@ -259,6 +132,93 @@ a
 		</div>
 	</div>
 </div>
+
+
+
+<!-- delete Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        	해당 게시글을 정말 삭제하시겠습니까? 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-danger">삭제하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- edit Modal -->
+<div class="modal fade" role="dialog" tabindex="-1" id="edit-modal">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">게시글 수정</h5>
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="py-1">
+					<form class="form" novalidate="">
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>Number</label><input class="form-control" readonly="readonly"
+												type="text" name="name" placeholder="John Smith"
+												value="1">
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<label>Category</label> <input class="form-control" 
+												type="text" name="category" 
+												value="스터디">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>Title</label> <input class="form-control" type="text" 
+												 value="자유게시판 제목 .">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<div class="form-group">
+											<label>Content</label>
+											<textarea class="form-control" rows="5"> </textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col d-flex justify-content-end">
+								<button class="btn btn-primary" type="submit">완료</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 
 <%@include file="../include/footer.jsp"%>

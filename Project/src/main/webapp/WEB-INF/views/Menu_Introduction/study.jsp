@@ -8,22 +8,23 @@
 
 <%@include file="../include/header.jsp"%>
 <link rel="stylesheet" href="../resources/fonts/icomoon/style.css">
-<link rel="stylesheet" href="../resources/css/owl.carousel.min.css">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <!-- Style -->
 <link rel="stylesheet" href="../resources/css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../resources/css/Categroy.css">
 
-<div style="background-color: white; width: 100%; padding-top: 100px;">
-
-	<img style="width: 100%; height: 500px;"
-		src="../resources/images/cate_ex_image.png" />
-</div>
-
-<div class="content" >
+<div class="video-box">
+        <video class="video-container" autoplay muted loop>
+          <source src="../resources/images/스터디.mp4" type="video/mp4">
+          </video>
+      </div>
+<div class="content">
 
 	<div class="container">
-		<h2 class="mb-5 text-black text-bold">스터디</h2>
+		<h2 class="text-primary">LeisureSports</h2>
 
 		<div class="table-responsive">
 
@@ -40,107 +41,32 @@
 				</thead>
 				<tbody>
 
-				
-					<tr>
-						<td>10</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
 					<tr>
 						<td>2</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
+						<td>레저</td>
+						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
+						<td>매주 일요일 3시</td>
+						<td><a href="/home/detail"><button type="button"
+                    class="btn btn-sm btn-outline-secondary ani-button">상세보기</button>
+                    </a></td>
+
 					</tr>
+
 					<tr>
 						<td>1</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
+						<td>레저</td>
+						<td>수상스키 <small class="d-block"> 수상스키 같이 탈 사람 모집 ...</small>
 						</td>
 						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
+						<td>매주 일요일 3시</td>
+						<td><a href="/home/detail"><button type="button"
+                    class="btn btn-sm btn-outline-secondary ani-button">상세보기</button>
+                    </a></td>
+
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>스터디</td>
-						<td>spring<small class="d-block">스프링 스터디 모집 </small>
-						</td>
-						<td>2022-11-25</td>
-						<td>매주 일요일 11시</td>
-						<td><a href="detail" class="more">상세보기</a></td>
-					</tr>
-			
+
 				</tbody>
 			</table>
 		</div>

@@ -5,10 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
-body {
-	background: #dcdcdc;
-	margin-top: 20px;
-}
 
 .widget-26 {
 	color: #3c4142;
@@ -274,7 +270,7 @@ body {
 
 <%@include file="../include/header.jsp"%>
 
-<div class="container" style="padding-top: 100px;">
+<div class="container" style="padding-top: 150px;">
 
 	<div class="row">
 		<div class="col-12">
