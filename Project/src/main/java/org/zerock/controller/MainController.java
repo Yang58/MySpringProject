@@ -87,10 +87,15 @@ public class MainController {
 		return "/Club_Application/NewClubApply";	
 	}
 	
-	@RequestMapping("/newclub")
+	@RequestMapping("/clubapply")
 	public String NewClub() {
 		
-		return "/Club_Application/NewClub";	
+		return "/Club_Application/Club_Apply";	
+	}
+	@RequestMapping("/clubinfo")
+	public String Clubinfo() {
+		
+		return "/Club_Application/Club_info";	
 	}
 	@RequestMapping("/leisure")
 	public String leisure() {
@@ -155,6 +160,42 @@ public class MainController {
 		
 		return "/Menu_Introduction/detail";
 		
+	}
+	
+	@RequestMapping("/freeboard")
+	public String FreeBoardList() {
+		
+		return "/Community/FreeBoardList";
+	}
+	@RequestMapping("/freewrite")
+	public String FreeBoardWrite() {
+		
+		return "/Community/FreeBoardWrite";
+	}
+	
+	@RequestMapping("/freedetail")
+	public String FreeBoardDetail() {
+		
+		return "/Community/FreeBoardDetail";
+	}
+	
+	
+	@RequestMapping("/qnaboard")
+	public String QnaBoardList() {
+		
+		return "/Community/QnaBoardList";
+	}
+	
+	@RequestMapping("/qnawrite")
+	public String QnaBoardWrite() {
+		
+		return "/Community/QnaBoardWrite";
+	}
+	
+	@RequestMapping("/qnadetail")
+	public String QnaBoardDetail() {
+		
+		return "/Community/QnaBoardDetail";
 	}
 	
 }

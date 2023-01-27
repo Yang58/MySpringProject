@@ -17,6 +17,11 @@ public class AdminController {
 		// 자유 게시판 관리
 		return "/admin/management/freeboard";
 	}
+	@RequestMapping("club_Applist")
+	public String applist() {
+		// 자유 게시판 관리
+		return "/admin/management/club_Applist";
+	}
 	@RequestMapping("qnaboard")
 	public String qnaboard() {
 		// 문의 게시판 관리

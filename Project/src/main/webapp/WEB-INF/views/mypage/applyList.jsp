@@ -76,40 +76,44 @@
 	</div> -->
    	<hr />
 
-   	<fieldset>
+   	
 		<!-- <legend>내 신청 현황</legend>
 			<input type="hidden" name="SecurityToken" value="E5136B34479301FA5FEE01E8E060E485"/> -->
 	<h4>내 신청 현황</h4>
-		<div class="">
+		<div class="list">
 		  <div class="row row-cols-5" style="border:1px solid;">
-		    <div class="col6">순서</div>
-		    <div class="col6">동호회</div>
-		    <div class="col6">신청일자</div>
-		    <div class="col6">활동일자</div>
-		    <div class="col6">탈퇴하기</div>
+		    <div class="col2">순서</div>
+		    <div class="col2">동호회</div>
+		    <div class="col2">신청일자</div>
+		    <div class="col2">활동일자</div>
+		    <div class="col2">탈퇴하기</div>
+		    
 		    <div class="col1">1</div>
-		    <div class="col2">맛집투어</div>
-		    <div class="col3">2022-09-19</div>
-		    <div class="col4">11</div>
-		    <div class="col5">탈퇴완료</div>
+		    <div class="col1">맛집투어</div>
+		    <div class="col1">2022-09-19</div>
+		    <div class="col1">11</div>
+		    <div class="col1">탈퇴완료</div>
+		    
 		    <div class="col1">2</div>
-		    <div class="col2">승마</div>
-		    <div class="col3">2022-10-01</div>
-		    <div class="col4">23</div>
-		    <div class="col5">탈퇴완료</div>
+		    <div class="col1">승마</div>
+		    <div class="col1">2022-10-01</div>
+		    <div class="col1">23</div>
+		    <div class="col1">탈퇴완료</div>
+		    
 		    <div class="col1">3</div>
-		    <div class="col2">골프</div>
-		    <div class="col3">2022-10-25</div>
-		    <div class="col4">50</div>
-		    <div class="col5">탈퇴완료</div>
+		    <div class="col1">골프</div>
+		    <div class="col1">2022-10-25</div>
+		    <div class="col1">50</div>
+		    <div class="col1">탈퇴완료</div>
+		    
 		    <div class="col1">4</div>
-		    <div class="col2">테니스</div>
-		    <div class="col3">2023-01-12</div>
-		    <div class="col4"></div>
-		    <div class="col5"><input type="button" value="탈퇴하기"  /></div>
+		    <div class="col1">테니스</div>
+		    <div class="col1">2023-01-12</div>
+		    <div class="col1"></div>
+		    <div class="col1"><input type="button" value="탈퇴하기"  /></div>
 		  </div>
 		</div>	
-	</fieldset>
+
 	
 	<!-- Vertically centered modal -->
 	<div class="modal-dialog modal-dialog-centered">

@@ -70,16 +70,16 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">동호회신청</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="#!"></a></li>
-								<li><a class="dropdown-item" href="/home/newclub">동호회 신청</a></li>
-								<li><a class="dropdown-item" href="/home/newclubapply"> 신규동호회 등록</a></li>
+								<li><a class="dropdown-item" href="/home/clubapply">동호회 신청</a></li>
+								<li><a class="dropdown-item" href="/home/newclubapply">동호회 개설신청</a></li>
 							</ul>
 						</li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#!">자유게시판</a></li>
-								<li><a class="dropdown-item" href="#!">Q&A</a></li>
+								<li><a class="dropdown-item" href="/home/freeboard">자유게시판</a></li>
+								<li><a class="dropdown-item" href="/home/qnaboard">Q&A</a></li>
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"

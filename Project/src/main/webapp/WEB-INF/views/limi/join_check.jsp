@@ -35,7 +35,7 @@
 						</nav>
 					</div>
 				</header>
-
+	
 				
 				<div class="modules_fmcs_member modules_member">
 					<div class="member_status">
@@ -50,7 +50,7 @@
 						</ol>
 					</div>
 				</div>
-
+		</section>
 
 				<div class="checknumber">
 					<ul>
@@ -82,7 +82,7 @@
 							</tr>
 							<tr>
 								<th scope="row">생년월일</th>
-								<td><select id="birthday_yyyy" name="birthday_yyyy"
+								<td><select id="birthday_yyyy" name="birthday_yyyy" style="width:auto;"
 									title="생년월일 중 년 선택"><option value=""
 											selected="selected">년 선택</option>
 										<option value="2023">2023</option>
@@ -198,7 +198,7 @@
 										<option value="1913">1913</option>
 										<option value="1912">1912</option>
 										<option value="1911">1911</option>
-										<option value="1910">1910</option></select><select id="birthday_mm"
+										<option value="1910">1910</option></select><select id="birthday_mm" style="width:auto;"
 									name="birthday_mm" title="생년월일 중 월 선택"><option
 											value="" selected="selected">월 선택</option>
 										<option value="1">01</option>
@@ -212,7 +212,7 @@
 										<option value="9">09</option>
 										<option value="10">10</option>
 										<option value="11">11</option>
-										<option value="12">12</option></select><select id="birthday_dd"
+										<option value="12">12</option></select><select id="birthday_dd" style="width:auto;"
 									name="birthday_dd" title="생년월일 중 일 선택"><option
 											value="" selected="selected">일 선택</option>
 										<option value="1">01</option>
@@ -251,14 +251,13 @@
 						</tbody>
 					</table>
 				</div>
-				<p class="order_box">
-					<a href="/join_agree" class="true">인증하기</a>
-				</p>
-				</fieldset>
-				</form>
+				
+				<div class="d-flex justify-content-center">
+					<p class="order_box">
+						<a href="/home/join_agree" class="true">인증하기</a>
+					</p>
+				</div>
 		</div>
-		</section>
 	</div>
-</div>
 </div>
 <%@include file="../include/footer.jsp"%>

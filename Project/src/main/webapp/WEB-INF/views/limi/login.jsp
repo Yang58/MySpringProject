@@ -85,7 +85,9 @@
 										</form>
 
 										<p class="link_box">
-											<a href="/join_check">회원가입</a> <a href="/findid">아이디찾기</a> <a href="findpw">비밀번호찾기</a>
+											<a href="/home/join_check">회원가입</a> 
+											<a href="/home/findid">아이디찾기</a> 
+											<a href="/home/findpw">비밀번호찾기</a>
 										</p>
 									</div>
 								</div>

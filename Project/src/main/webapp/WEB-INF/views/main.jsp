@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="./include/header.jsp"%>
-
+<link href="../resources/css/maincss.css" rel="stylesheet" />
 <div class="video-box">
 	<video class="video-container" autoplay muted loop>
 		<source src="../resources/images/people.mp4" type="video/mp4"><source>

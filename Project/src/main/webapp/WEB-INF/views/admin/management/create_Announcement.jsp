@@ -56,7 +56,7 @@
 									<button
 										class="button button--winona button--border-thin button--round-s"
 										data-text="정말~?"
-										onclick="location.href='freeboard'">
+										onclick="location.href='/home/freeboard'">
 										<span>작성취소</span>
 									</button>
 									<button

@@ -500,7 +500,7 @@
 
 								</div>
 								<p class="order_box">
-									<a href="/join_form" class="true">동의</a> <a href="/join_agree"
+									<a href="/home/join_form" class="true">동의</a> <a href="/home/join_agree"
 										class="true">취소</a>
 								</p>
 							</fieldset>

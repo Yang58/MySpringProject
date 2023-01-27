@@ -70,8 +70,10 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">동호회신청</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="#!"></a></li>
-								<li><a class="dropdown-item" href="#!"> 동호회 신청</a></li>
-								<li><a class="dropdown-item" href="#!"> 신규동호회 등록</a></li>
+								<li><a class="dropdown-item" href="/home/newclub">동호회
+										신청</a></li>
+								<li><a class="dropdown-item" href="/home/newclubapply">
+										신규동호회 등록</a></li>
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
@@ -84,22 +86,30 @@
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">마이페이지</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#!">회원 정보 관리</a></li>
-								<li><a class="dropdown-item" href="#!">동호회 신청 현황</a></li>
+								<li><a class="dropdown-item" href="/home/mypage">회원 정보
+										관리</a></li>
+								<li><a class="dropdown-item" href="/home/mypage">동호회 신청
+										현황</a></li>
 							</ul></li>
-							
-							<li class="nav-item dropdown"><a
+
+						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</a>
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자
+								메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/admin/freeboard">게시판 관리</a></li>
+								<li><a class="dropdown-item" href="/admin/freeboard">게시판
+										관리</a></li>
 								<li><a class="dropdown-item" href="/admin/qnaboard">Q&A관리</a></li>
-								<li><a class="dropdown-item" href="/admin/member_registration">신규 회원 등록</a></li>
-								<li><a class="dropdown-item" href="/admin/member_management">회원 관리</a></li>
-								<li><a class="dropdown-item" href="/admin/club_registration">동호회 등록</a></li>
-								<li><a class="dropdown-item" href="/admin/club_management">동호회 관리</a></li>
+								<li><a class="dropdown-item"
+									href="/admin/member_registration">신규 회원 등록</a></li>
+								<li><a class="dropdown-item"
+									href="/admin/member_management">회원 관리</a></li>
+								<li><a class="dropdown-item"
+									href="/admin/club_Applist">동호회  신청 목록</a></li>
+								<li><a class="dropdown-item" href="/admin/club_management">동호회
+										관리</a></li>
 							</ul></li>
-			
+
 						<div id="login"
 							style="position: absolute; top: 0px; right: 150px;">
 							<ul

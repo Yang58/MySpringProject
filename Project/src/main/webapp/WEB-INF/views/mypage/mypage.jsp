@@ -76,7 +76,7 @@
 	</div> -->
    	<hr />
 
-   	<fieldset>
+   	
 		<!-- <legend>회원 비밀번호 확인</legend>
 			<input type="hidden" name="SecurityToken" value="E5136B34479301FA5FEE01E8E060E485"/> -->
 	<div class="messagebox">
@@ -107,7 +107,7 @@
 		<div class="text-center">
 			<button class="submit" onclick="location.href='/home/info'">비밀번호 확인</button>
 		</div>		
-	</fieldset>
+	
 	
 	<div class="modal" tabindex="-1">
 	  <div class="modal-dialog">

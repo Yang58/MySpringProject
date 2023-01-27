@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/* ani button */
+@keyframes shake{
+  0%{transform: rotate(0deg);}
+  25%{transform: rotate(-8deg);}
+  50%{transform: rotate(8deg);}
+  75%{transform: rotate(-8deg);}
+  100%{transform: rotate(0deg);}
+}
+
+.ani-button:hover{
+  animation-name: shake;
+  animation-duration: 1s;
+}
+
+.ani-img{
+  /* transform: rotate(90deg); */
+  /* 90도 회전 */
+
+  /* transform: translateX(100px); */
+  transform: scale(1.0);
+  /* 크기 변경*/
+
+  /* text-align: center; */
+
+}
+ .ani-img:hover{
+  animation-name : 왔다갔다;
+  animation-duration: 1s;
+}
+
+@keyframes 왔다갔다 {
+  /*  @keyframes 복잡한 애니메이션 정의할때 쓴다 예전 간단한 
+  a -> b 애니메이션들은 시작스타일, 최종스타일, 트리거, transition 주면 된다고 했습니다. 
+  근데 a -> b -> a,  a -> 1초정지 -> b 같은 복잡한건 못합니다.
+  @keyframes를 쓰면 가능합니다*/
+
+  0%{
+      /* 0%=> 진행도=>초시시작 숫자는 내가 정해도 된다.  */
+      transform: translateX(0px);
+  }
+
+  50%{
+      transform: translateX(-100px);
+  }
+
+  100%{
+      transform: translateX(100px);
+  }
+}
+
+
+.blinking1:hover {
+  /* -webkit-animation: blink 0.5s ease-in-out infinite alternate; */
+  /* -moz-animation: blink 0.5s ease-in-out infinite alternate; */
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.blinking2:hover{
+  /* -webkit-animation: blink 0.5s ease-in-out infinite alternate; */
+  /* -moz-animation: blink 0.5s ease-in-out infinite alternate; */
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-duration: 1s;
+}
+
+
+
+@keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

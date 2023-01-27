@@ -75,7 +75,7 @@ scale
 <div class="container" style="width: 100%; padding: 200px;">
 
 	<div class="row text-center" style="padding-bottom: 50px;">
-		<h1>동호회 상세보기</h1>
+		<h4>동호회 상세보기</h4>
 	</div>
 	<div class="card mb-3" style="max-width: 100%;">
 		<div class="row g-0">
@@ -99,24 +99,21 @@ scale
 									<div class="form-floating">
 										<input type="text" class="form-control light"
 											id="floatingInputGroup1" placeholder="Username"
-											readonly="readonly" value="club name"> <label
-											for="floatingInputGroup1">동호회 이름</label>
+											readonly="readonly" value="동호회 이름">
 									</div>
 								</div>
 								<div class="row input-group" style="margin-bottom: 10px;">
 									<div class="form-floating">
 										<input type="text" class="form-control light"
 											id="floatingInputGroup1" placeholder="Username"
-											readonly="readonly" value="category"> <label
-											for="floatingInputGroup1">카테고리</label>
+											readonly="readonly" value="카테고리"> 
 									</div>
 								</div>
 								<div class="row input-group" style="margin-bottom: 10px;">
 									<div class="form-floating">
 										<input type="text" class="form-control light"
 											id="floatingInputGroup1" placeholder="Username"
-											readonly="readonly" value="date"> <label
-											for="floatingInputGroup1">모임 주기</label>
+											readonly="readonly" value="모임 주기"> 
 									</div>
 								</div>
 							</div>

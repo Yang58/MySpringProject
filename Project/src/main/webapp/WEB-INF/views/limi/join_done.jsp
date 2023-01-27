@@ -53,12 +53,19 @@
 				</div>
 				
 				<fieldset>
-						<div class="result_table">
+						<div class="result_table d-flex justify-content-center">
 							<table class="fit no_thead">
-								<span><strong>댕댕이</strong>님의 회원가입이 완료되었습니다.<br>다양한 정보와 서비스를 제공해 드릴 수 있도록 노력하겠습니다.<br>감사합니다.
-								</span>
-								<hr />
-								<a href="/login">로그인하기</a>
+								<tr>
+									<th>
+										<strong>댕댕이</strong>님의 회원가입이 완료되었습니다.<br>다양한 정보와 서비스를 제공해 드릴 수 있도록 노력하겠습니다.<br>감사합니다.
+									</th>
+								</tr>
+								<tr>
+									<th>
+										<br>
+										<a href="/home/login">로그인하기</a>
+									</th>
+								</tr>
 							</table>
 						</div>
 				</fieldset>
