@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mybatis에 대한 이용이라는 선언 -->
+<mapper namespace="org.zerock.mapper.AdminBoardMapper"> <!-- 패키지명.인터페이스명 / 연결해주는 유일한 근거 -->
+	<select id="getList"
+		resultType="org.zerock.domain.AdminBoardDTO"> <!-- boardVO타입으로 배열형식으로 데이터를 쌓는다. 컬렉션 구조 에서 list 배열형식으로 -->
+	<![CDATA[
+		select * from board where board_type in ('00','01') order by board_type asc
+	]]>
+	</select> <!-- xml에서 사용하는 select 구문의 id 속성값이 boardmapper 인터페이스 메소드의 이름이다 -->
+
+	<!-- 작성 -->
+	<insert id="write">
+		insert into board(bno ,kind , board_type , title , content , reg_date , id)
+		values (seq_board.nextval, '00' , '00' , #{title} , #{content} , sysdate , 'admin')
+	</insert>
+
+	<!-- 이거는 mvcBoarddto의 selectview와 같다 -->
+	<select id="read" resultType="org.zerock.domain.AdminBoardDTO"><!-- vo 클래스에 담아서 받아옴 -->
+		select * from board where bno = #{bno}
+	</select>
+
+	<update id="update">
+		update board
+		set title = #{title},
+		content = #{content} ,
+		mod_date = sysdate
+		where bno= #{bno}
+	</update>
+
+	<delete id="delete">
+		delete from board where bno = #{bno}
+	</delete>
+
+
+</mapper> 
+
+
+

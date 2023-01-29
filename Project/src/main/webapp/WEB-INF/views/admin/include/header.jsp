@@ -34,6 +34,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../resources/js/scripts.js"></script>
+<!-- 제이쿼리 cdn  -->
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -97,9 +99,9 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자
 								메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/admin/freeboard">게시판
+								<li><a class="dropdown-item" href="/admin/freelist">게시판
 										관리</a></li>
-								<li><a class="dropdown-item" href="/admin/qnaboard">Q&A관리</a></li>
+								<li><a class="dropdown-item" href="/admin/qnalist">Q&A관리</a></li>
 								<li><a class="dropdown-item"
 									href="/admin/member_registration">신규 회원 등록</a></li>
 								<li><a class="dropdown-item"

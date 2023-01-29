@@ -20,14 +20,14 @@
 			</div>
 			<div class="">
 				<div class="py-1">
-					<form class="form" novalidate="">
+					<form role="form" method="post">
 						<div class="row">
 							<div class="col">
 
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<label>제목</label> <input class="form-control" type="text"
+											<label>제목</label> <input class="form-control" type="text" id="title" name="title"
 												placeholder="제목을 입력해주세요">
 										</div>
 									</div>
@@ -36,32 +36,32 @@
 									<div class="col mb-3">
 										<div class="form-group">
 											<label>내용</label>
-											<textarea class="form-control" rows="10"
+											<textarea class="form-control" rows="10" id="content" name="content"
 												placeholder="공지사항 내용을 입력해주세요"></textarea>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="container text-center">
+					<!-- 	<div class="container text-center">
 							<div class="input-file">
 								<input type="text" readonly="readonly" class="file-name" /> <label
 									for="upload01" class="file-label">파일 업로드</label> <input
 									type="file" name="" id="upload01" class="file-upload" />
 							</div>
 						</div>
-
+ -->
 						<div class="row">
 							<div class="col d-flex justify-content-center">
 									<button
 										class="button button--winona button--border-thin button--round-s"
-										data-text="정말~?"
+										data-text="Click!"
 										onclick="location.href='/home/freeboard'">
 										<span>작성취소</span>
 									</button>
 									<button
 										class="button button--winona button--border-thin button--round-s"
-										data-text="진쫘~??" type="submit">
+										data-text="Click!" type="submit">
 										<span>저장하기</span>
 									</button>
 							</div>
