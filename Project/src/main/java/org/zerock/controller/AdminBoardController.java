@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.Criteria;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.AdminBoardService;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,11 @@ import lombok.extern.log4j.Log4j;
 public class AdminBoardController {
 
 	private AdminBoardService service;
+	
+	@GetMapping("/home")
+	public String goHome() {
+		return "/admin/main";
+	}
 
 	@GetMapping("/write")
 	public String write() {
@@ -35,20 +42,24 @@ public class AdminBoardController {
 		service.write(dto);
 		return "redirect:/admin/freelist";
 	}
+	
+	@GetMapping("/list")
+	public String list (Criteria cri , Model model ) {
+		log.info("list :" + cri);
+		model.addAttribute("list", service.getList(cri));
 
-	@RequestMapping(value = "/freelist", method = RequestMethod.GET)
-	public String list(Model model) {
-		log.info("FreeBoard list");
-		List<AdminBoardDTO> list = service.getList();
-		model.addAttribute("list", list);
+		int total = service.getTotal(cri);
+		log.info("total : " + total);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		return "/admin/board/freeboard";
-
+		
 	}
+
 
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String getRead(@RequestParam("bno") Long bno, Model model) {
-		log.info("Get Read");
+		log.info("Get Read") ;
 		AdminBoardDTO dto = service.read(bno);
 
 		model.addAttribute("read", dto);
@@ -88,5 +99,6 @@ public class AdminBoardController {
 
 		return "redirect:/admin/freelist";
 	}
-
+	
+	
 }

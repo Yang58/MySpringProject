@@ -57,7 +57,7 @@
 			</table>
 			<div class="btn-groupp" role="group" aria-label="Basic example"
 				style="text-align: end;">
-				<c:if test="${read.kind eq '00' }"> 
+				<c:if test="${read.cate_num eq '00' }"> 
 					<button id="modity_btn" class="btn btn-primary">수정</button>
 				</c:if>
 				

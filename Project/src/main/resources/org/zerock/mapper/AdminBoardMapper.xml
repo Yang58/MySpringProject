@@ -4,17 +4,65 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mybatis에 대한 이용이라는 선언 -->
 <mapper namespace="org.zerock.mapper.AdminBoardMapper"> <!-- 패키지명.인터페이스명 / 연결해주는 유일한 근거 -->
+
 	<select id="getList"
 		resultType="org.zerock.domain.AdminBoardDTO"> <!-- boardVO타입으로 배열형식으로 데이터를 쌓는다. 컬렉션 구조 에서 list 배열형식으로 -->
 	<![CDATA[
-		select * from board where board_type in ('00','01') order by board_type asc
+		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num , c.cate_num , cate_kind
+		from board b left outer join category c
+		on b.cate_num = c.cate_num where board_type in ('00' , '01') 
+		order by board_type asc
 	]]>
 	</select> <!-- xml에서 사용하는 select 구문의 id 속성값이 boardmapper 인터페이스 메소드의 이름이다 -->
 
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board where bno > 0
+	</select>
+	
+	<!-- prefixOverrides   -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	
+	<!-- 페이징  -->
+	<select id="getListWithPaging" resultType="org.zerock.domain.AdminBoardDTO"
+			parameterType="org.zerock.domain.Criteria">
+	
+		<![CDATA[
+		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id ,  cate_num , cate_kind
+    	from (
+        select  bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num  , cate_kind,
+        row_number() over(order by board_type asc) as rNum
+        from  board b left outer join category c 
+        on b.cate_num = c.cate_num 
+        where board_type in ('00','01')
+        ) mb
+    where rNum between 1 and 10
+ order by board_type asc;
+		]]>
+	</select>
 	<!-- 작성 -->
 	<insert id="write">
-		insert into board(bno ,kind , board_type , title , content , reg_date , id)
-		values (seq_board.nextval, '00' , '00' , #{title} , #{content} , sysdate , 'admin')
+		insert into board(bno , title , content , reg_date ,view_count , secret_type, board_type , id , cate_num)
+		values (seq_annoboard.nextval, #{title} , #{content} , sysdate , 1 , 0 , '00' ,'admin' , '00' )
 	</insert>
 
 	<!-- 이거는 mvcBoarddto의 selectview와 같다 -->

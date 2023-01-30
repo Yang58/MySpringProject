@@ -3,6 +3,7 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.Criteria;
 
 //스프링 컨테이너 등록 방식 
 //1. @mapper
@@ -22,6 +23,11 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 	
 	// 삭제
 	public void delete(Long bno);
+	
+	public List<AdminBoardDTO> getListWithPaging(Criteria cri);
+
+	public int getTotalCount(Criteria cri);
+
 	
 	
 	

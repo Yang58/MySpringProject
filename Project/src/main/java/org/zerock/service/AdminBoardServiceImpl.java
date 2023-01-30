@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.AdminBoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -54,7 +55,18 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	}
 
 
+	@Override
+	public List<AdminBoardDTO> getList(Criteria cri) {
+		log.info("get List with criteria : " + cri );
+		return mapper.getListWithPaging(cri);
+	}
 
+
+	@Override
+	public int getTotal(Criteria cri) {
+		log.info("get Total count ");
+		return mapper.getTotalCount(cri);
+	}
 
 
 
