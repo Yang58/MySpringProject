@@ -26,19 +26,19 @@
 							<div class="card-title">
 								<div class="container">
 									<div class="row">
-										<h6 class="col-9 mr-2">
+										<h6 class="col-10 mr-2">
 											<small class="px-1">자유 게시판 관리</small>
 										</h6>
-										<button id="write" onclick="location.href='/admin/write'"
+										<button id="write" onclick="location.href='/admin/freewrite'"
 											style="width: auto;"
-											class="col btn btn-primary btn-sm d-flex jsutify-content-end text-center m-4">
-											공지사항 작성</button>
+											class="col-1 btn btn-primary btn-sm d-flex jsutify-content-end text-center m-4">
+											공지 작성</button>
 									</div>
 								</div>
 								<div class="container">
 									<div class='row'>
 										<div class="col-lg-12">
-											<form id='searchForm' action="/admin/list" method='get'>
+											<form id='searchForm' action="/admin/freelist" method='get'>
 												<select name='type'>
 													<option value=""
 														<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>
@@ -78,7 +78,7 @@
 										<table class="table table-bordered">
 											<thead>
 												<tr>
-													<th class="align-top">번호</th>
+													<th class="align-top text-center">번호</th>
 													<th>카테고리</th>
 													<th class="max-width">제목</th>
 													<th>작성자</th>
@@ -87,17 +87,38 @@
 												</tr>
 											</thead>
 
-
 											<tbody>
+												<c:forEach items="${aanoList}" var="annoboard">
+													<tr>
+														<td class="align-middle align-middle text-center ">
+															<p> o </p> </td>
+														<td class="align-middle align-middle "><c:out
+																value="${annoboard.cate_kind}" /></td>
+														<td class="align-middle align-middle"><a
+															href="/admin/freeread?bno=${annoboard.bno}"><c:out
+																	value="${annoboard.title}" /></a></td>
+														<td class="align-middle align-middle"><c:out
+																value="${annoboard.id}" /></td>
+														<td class="align-middle align-middle"><fmt:formatDate
+																value="${annoboard.reg_date}" pattern="yyyy-MM-dd" /></td>
+														<td class="text-center align-middle">
+															<div class="btn-group align-top">
+																<form action="/admin/freedelete?bno=${annoboard.bno}" method="post">
+																	<button id="delete_btn" class="btn xs btn-primary" >삭제</button>
+																</form>
+															</div>
+														</td>
+													</tr>
+												</c:forEach>
 
 												<c:forEach items="${list}" var="board">
 													<tr>
-														<td class="align-middle align-middle"><c:out
+														<td class="align-middle align-middle text-center"><c:out
 																value="${board.bno}" /></td>
 														<td class="align-middle align-middle"><c:out
 																value="${board.cate_kind}" /></td>
 														<td class="align-middle align-middle"><a
-															href="/admin/read?bno=${board.bno}"><c:out
+															href="/admin/freeread?bno=${board.bno}"><c:out
 																	value="${board.title}" /></a></td>
 														<td class="align-middle align-middle"><c:out
 																value="${board.id}" /></td>
@@ -105,8 +126,9 @@
 																value="${board.reg_date}" pattern="yyyy-MM-dd" /></td>
 														<td class="text-center align-middle">
 															<div class="btn-group align-top">
-																<a class="btn btn-sm btn-outline-secondary "
-																	href="/admin/read?bno=${board.bno}">상세보기</a>
+																<form action="/admin/freedelete?bno=${board.bno}" method="post">
+																	<button id="delete_btn" class="btn btn-primary" >삭제</button>
+																</form>
 															</div>
 														</td>
 													</tr>
@@ -116,16 +138,16 @@
 									</div>
 									<div class="d-flex justify-content-end">
 										<div class="records">
-											Showing: <b><c:out value="${pageMaker.cri.pageNum}" /> -
-												<c:out value="${pageMaker.cri.amount}" /> </b> of <b><c:out
-													value="${pageMaker.total}" /></b> result
+											Showing: <b>
+												<c:out value="${(pageMaker.cri.pageNum -1) * pageMaker.cri.amount}" /> -
+												<c:out value="${pageMaker.cri.pageNum * pageMaker.cri.amount}" /> 
+												</b> of <b><c:out value="${pageMaker.total}" /></b> result
 										</div>
 									</div>
 
 									<!-- 페이징 기능  -->
 									<div class='pull-right'>
 										<ul class="pagination">
-
 											<c:if test="${pageMaker.prev}">
 												<li class="paginate_button previous"><a
 													href="${pageMaker.startPage-1 }"> Previous</a></li>
@@ -145,18 +167,15 @@
 										</ul>
 									</div>
 
-									<form id='actionForm' action="/admin/list" method='get'>
+									<form id='actionForm' action="/admin/freelist" method='get'>
 										<input type='hidden' name='pageNum'
-											value='${pageMaker.cri.pageNum}'> <input
+											value='${pageMaker.cri.pageNum}'>  <input
 											type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 										<input type='hidden' name='type'
 											value='<c:out value="${pageMaker.cri.type}"/>'> <input
 											type='hidden' name='keyword'
 											value='<c:out value="${pageMaker.cri.keyword}"/>'>
 									</form>
-
-
-
 								</div>
 							</div>
 						</div>
@@ -188,7 +207,6 @@
 		</div>
 	</div>
 </div>
-
 
 <script>
 	$(document).ready(function() {

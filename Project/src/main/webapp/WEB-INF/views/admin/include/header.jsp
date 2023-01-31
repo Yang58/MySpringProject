@@ -103,8 +103,6 @@
 										관리</a></li>
 								<li><a class="dropdown-item" href="/admin/qnalist">Q&A관리</a></li>
 								<li><a class="dropdown-item"
-									href="/admin/member_registration">신규 회원 등록</a></li>
-								<li><a class="dropdown-item"
 									href="/admin/member_management">회원 관리</a></li>
 								<li><a class="dropdown-item"
 									href="/admin/club_Applist">동호회  신청 목록</a></li>

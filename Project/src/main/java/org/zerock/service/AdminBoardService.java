@@ -19,5 +19,10 @@ public interface AdminBoardService {
 	
 	public List<AdminBoardDTO> getList(Criteria cri);
 	
+	
 	public int getTotal(Criteria cri);
+
+	public int getqnaTotal();
+
+	public List<AdminBoardDTO> qnaList();
 }

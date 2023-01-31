@@ -1,7 +1,5 @@
 package org.zerock.controller;
 
-import java.util.List;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,34 +28,35 @@ public class AdminBoardController {
 		return "/admin/main";
 	}
 
-	@GetMapping("/write")
+
+	@GetMapping("/freewrite")
 	public String write() {
 		log.info("controller write Page Move .... ");
 		return "/admin/board/Announcement_write";
 	}
 
-	@PostMapping("/write")
+	@PostMapping("/freewrite")
 	public String postWrite(AdminBoardDTO dto) throws Exception {
 		log.info("controller write run .... ");
 		service.write(dto);
 		return "redirect:/admin/freelist";
 	}
 	
-	@GetMapping("/list")
+	@GetMapping("/freelist")
 	public String list (Criteria cri , Model model ) {
 		log.info("list :" + cri);
 		model.addAttribute("list", service.getList(cri));
-
+		model.addAttribute("aanoList", service.getList());
+		log.info("list : " + service.getList(cri));
+		log.info("aanoList : " + service.getList());
 		int total = service.getTotal(cri);
 		log.info("total : " + total);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		return "/admin/board/freeboard";
-		
 	}
 
-
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	@RequestMapping(value = "/freeread", method = RequestMethod.GET)
 	public String getRead(@RequestParam("bno") Long bno, Model model) {
 		log.info("Get Read") ;
 		AdminBoardDTO dto = service.read(bno);
@@ -66,9 +65,9 @@ public class AdminBoardController {
 
 		return "/admin/board/FreeBoardDetail";
 	}
-
+	
 	// 글 수 정
-	@GetMapping(value = "/modify")
+	@GetMapping("/freemodify")
 	public String getModify(@RequestParam("bno") Long bno, Model model) {
 		log.info("get modify");
 
@@ -78,26 +77,41 @@ public class AdminBoardController {
 
 		return "/admin/board/Announcement_modify";
 	}
-
 	// 글 수정 POST
-	@PostMapping("/modify")
+	@PostMapping("/freemodify")
 	public String postModify(AdminBoardDTO vo) {
 		log.info("post modify");
 
 		service.update(vo);
 
 		return "redirect:/admin/freelist";
-
 	}
-
+	
 	// 글 삭제 POST
-	@PostMapping(value = "/delete")
+	@PostMapping("/freedelete")
 	public String postDelete(@RequestParam("bno") Long bno) {
 		log.info("post delete");
-
 		service.delete(bno);
 
 		return "redirect:/admin/freelist";
+	}
+	
+	
+	
+	
+	
+	//-------------------------------- QNA 
+	
+	
+	@GetMapping("/qnalist")
+	public String qnalist( Model model) {
+		model.addAttribute("qnaList", service.qnaList());
+		log.info("qnaList : " + service.qnaList());
+		int total = service.getqnaTotal();
+		log.info("total : " + total);
+		model.addAttribute("total", service.getqnaTotal());
+
+		return "/admin/qnaBoard/qnaboard";
 	}
 	
 	

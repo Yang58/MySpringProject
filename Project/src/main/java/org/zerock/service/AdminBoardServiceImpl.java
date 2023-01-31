@@ -63,11 +63,21 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 
 
 	@Override
+	public int getqnaTotal() {
+		log.info("get Total count ");
+		return mapper.qnaTotalCount();
+	}
+	
+	@Override
 	public int getTotal(Criteria cri) {
 		log.info("get Total count ");
 		return mapper.getTotalCount(cri);
 	}
 
 
-
+	@Override
+	public List<AdminBoardDTO> qnaList() {
+		log.info("get List with criteria : " );
+		return mapper.getqnaList();
+	}
 }

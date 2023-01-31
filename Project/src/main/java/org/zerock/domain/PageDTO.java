@@ -14,6 +14,7 @@ public class PageDTO {
 	private int total;
 	private Criteria cri;
 	
+	// TODO : Total 값에서 공지사항 개수 뺴야함 
 	public PageDTO(Criteria cri , int total) {
 		this.cri = cri;
 		this.total=total;

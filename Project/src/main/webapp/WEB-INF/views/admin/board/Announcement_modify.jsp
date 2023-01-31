@@ -43,13 +43,6 @@
 								</div>
 							</div>
 						</div>
-					<!-- 	<div class="container text-center">
-							<div class="input-file">
-								<input type="text" readonly="readonly" class="file-name" /> <label
-									for="upload01" class="file-label">파일 업로드</label> <input
-									type="file" name="" id="upload01" class="file-upload" />
-							</div>
-						</div> -->
 						<div class="row">
 							<div class="col d-flex justify-content-center">
 									<button
@@ -71,7 +64,7 @@
 									   // cancel 버튼 클릭
 									   $("#cancel_btn").click(function(){
 									    
-										    formObj.attr("action", "/admin/read?bno=" + $("#bno").val());
+										    formObj.attr("action", "/admin/freeread?bno=" + $("#bno").val());
 										    formObj.attr("method", "get");    
 										    formObj.submit();       
 									    

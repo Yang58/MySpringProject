@@ -43,20 +43,13 @@
 								</div>
 							</div>
 						</div>
-					<!-- 	<div class="container text-center">
-							<div class="input-file">
-								<input type="text" readonly="readonly" class="file-name" /> <label
-									for="upload01" class="file-label">파일 업로드</label> <input
-									type="file" name="" id="upload01" class="file-upload" />
-							</div>
-						</div>
- -->
+		
 						<div class="row">
 							<div class="col d-flex justify-content-center">
 									<button
 										class="button button--winona button--border-thin button--round-s"
 										data-text="Click!"
-										onclick="location.href='/home/freeboard'">
+										onclick="location.href='/admin/freelist'">
 										<span>작성취소</span>
 									</button>
 									<button

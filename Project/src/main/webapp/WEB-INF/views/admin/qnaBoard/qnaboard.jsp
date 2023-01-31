@@ -41,7 +41,7 @@ a
 									<table class="table table-bordered">
 										<thead>
 											<tr>
-												<th class="align-top">번호</th>
+												<th class="align-top text-center">번호</th>
 												<th>유형</th>
 												<th class="max-width">제목</th>
 												<th>작성자</th>
@@ -50,29 +50,40 @@ a
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td class="align-middle">1</td>
-												<td class="align-middle align-middle">활동 문의</td>
-												<td class="text-nowrap align-middle">더 많은 활동을 추가해주세요</td>
-												<td class="text-nowrap align-middle">양형준</td>
-												<td class="text-center align-middle"><span>2022-10-20</span></td>
-												<td class="text-center align-middle">
-													<div class="btn-group align-top">
-														<button class="btn btn-sm btn-outline-secondary "
-															type="button" data-bs-toggle="modal" data-bs-target="#answer-modal">답변</button>
-														<button class="btn btn-sm btn-outline-secondary "
-															type="button" data-bs-toggle="modal" data-bs-target="#delete-modal">삭제</button>
-														
-													</div>
-												</td>
-											</tr>
+											<c:forEach items="${qnaList}" var="qnaboard">
+												<tr>
+													<td class="align-middle align-middle text-center "><c:out
+															value="${qnaboard.bno}" /></td>
+													<td class="align-middle align-middle "><c:out
+															value="${qnaboard.cate_kind}" /></td>
+													<td class="align-middle align-middle"><c:out
+																value="${qnaboard.title}" /></td>
+													<td class="align-middle align-middle"><c:out
+															value="${qnaboard.id}" /></td>
+													<td class="align-middle align-middle"><fmt:formatDate
+															value="${qnaboard.reg_date}" pattern="yyyy-MM-dd" /></td>
+													<td class="text-center align-middle">
+														<div class="btn-group align-top">
+															<button class="btn btn-sm btn-outline-secondary "
+																type="button" data-bs-toggle="modal"
+																onclick="location.href='?bno=${qnaboard.bno}'"
+																data-bs-target="#answer-modal">답변</button>
+															<button class="btn btn-sm btn-outline-secondary "
+																type="button" data-bs-toggle="modal"
+																data-bs-target="#delete-modal">삭제</button>
 
+														</div>
+													</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 									</table>
 								</div>
 								<div class="d-flex justify-content-end">
-                                            <div class="records">Showing: <b>1-20</b> of <b>200</b> result</div>
-                                </div>
+									<div class="records">
+										Showing: <b>1-20</b> of <b>200</b> result
+									</div>
+								</div>
 								<div class="d-flex justify-content-center">
 									<ul class="pagination mt-3 mb-0">
 										<li class="disabled page-item"><a href="#"
@@ -98,22 +109,23 @@ a
 
 
 <!-- delete Modal -->
-<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        	해당 문의 글을 정말 삭제하시겠습니까? 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-danger">삭제하기</button>
-      </div>
-    </div>
-  </div>
+<div class="modal fade" id="delete-modal" tabindex="-1"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">해당 문의 글을 정말 삭제하시겠습니까?</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary"
+					data-bs-dismiss="modal">취소</button>
+				<button type="button" class="btn btn-danger">삭제하기</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -135,24 +147,24 @@ a
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<label>유형</label><input class="form-control" readonly="readonly"
-												type="text" name="name" placeholder="John Smith"
-												value="활동 문의">
+											<label>유형</label><input class="form-control"
+												readonly="readonly" type="text" name="name"
+												placeholder="John Smith" value="활동 문의">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
-											<label>작성자</label> <input class="form-control" readonly="readonly"
-												type="text" name="username" placeholder="johnny.s"
-												value="양형준">
+											<label>작성자</label> <input class="form-control"
+												readonly="readonly" type="text" name="username"
+												placeholder="johnny.s" value="양형준">
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<label>제목</label> <input class="form-control" type="text" readonly="readonly"
-												 value="더 많은 활동을 추가해주세요.">
+											<label>제목</label> <input class="form-control" type="text"
+												readonly="readonly" value="더 많은 활동을 추가해주세요.">
 										</div>
 									</div>
 								</div>
@@ -160,7 +172,9 @@ a
 									<div class="col mb-3">
 										<div class="form-group">
 											<label>상세 내용</label>
-											<textarea class="form-control" rows="5" placeholder="추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!" readonly="readonly"></textarea>
+											<textarea class="form-control" rows="5"
+												placeholder="추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!"
+												readonly="readonly"></textarea>
 										</div>
 									</div>
 								</div>
@@ -168,13 +182,14 @@ a
 									<div class="col mb-3">
 										<div class="form-group">
 											<label>답변</label>
-											<textarea class="form-control" rows="5" placeholder="답변을 입력해주세요"></textarea>
+											<textarea class="form-control" rows="5"
+												placeholder="답변을 입력해주세요"></textarea>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="row">
 							<div class="col d-flex justify-content-end">
 								<button class="btn btn-primary" type="submit">완료</button>

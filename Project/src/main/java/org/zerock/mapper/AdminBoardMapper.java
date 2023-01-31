@@ -28,6 +28,10 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 
 	public int getTotalCount(Criteria cri);
 
+	public int qnaTotalCount();
+
+	public List<AdminBoardDTO> getqnaList();
+
 	
 	
 	

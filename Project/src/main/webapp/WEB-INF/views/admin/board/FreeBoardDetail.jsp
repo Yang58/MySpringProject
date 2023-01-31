@@ -8,7 +8,7 @@
 
 <%@include file="../include/header.jsp"%>
 
-
+<!-- TODO : 동호회  이미지 불러와서 띄워줘야함   -->
 <div class="container" style="margin-top: 100px;">
 	<img src="../resources/images/golf1.jpg" width="100%" height="300px">
 </div>
@@ -78,7 +78,7 @@
    // 수정 버튼 클릭
    $("#modity_btn").click(function(){
     
-	    formObj.attr("action", "/admin/modify");
+	    formObj.attr("action", "/admin/freemodify");
 	    formObj.attr("method", "get");    
 	    formObj.submit();       
     
@@ -88,7 +88,7 @@
    // 삭제 버튼 클릭
    $("#delete_btn").click(function(){
     
-	    formObj.attr("action", "/admin/delete");
+	    formObj.attr("action", "/admin/freedelete");
 	    formObj.attr("method", "post");    
 	    formObj.submit();
     
