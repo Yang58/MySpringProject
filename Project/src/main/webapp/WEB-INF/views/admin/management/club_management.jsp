@@ -90,6 +90,23 @@ a
 													</div>
 												</td>
 											</tr>
+											
+											<c:forEach items="${club}" var="club">
+													<tr>
+														<td class="align-middle align-middle text-center ">
+															<c:out value="${club.cno}" />
+														</td>
+														<td class="align-middle align-middle text-center ">
+															<c:out value="${club.club_name}" />
+														</td>
+														<td class="align-middle align-middle text-center ">
+															<c:out value="${club.cate_num}" />
+														</td>
+														<td class="align-middle align-middle text-center ">
+															<c:out value="${club.apply_date}" />
+														</td>
+													</tr>
+												</c:forEach>
 
 										</tbody>
 									</table>

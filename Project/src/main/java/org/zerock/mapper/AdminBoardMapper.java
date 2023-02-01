@@ -3,6 +3,8 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.AdminReplyDTO;
+import org.zerock.domain.AdminClubDTO;
 import org.zerock.domain.Criteria;
 
 //스프링 컨테이너 등록 방식 
@@ -27,13 +29,25 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 	public List<AdminBoardDTO> getListWithPaging(Criteria cri);
 
 	public int getTotalCount(Criteria cri);
+	
+	
+	// -------------- Q&A 
 
 	public int qnaTotalCount();
 
 	public List<AdminBoardDTO> getqnaList();
+	
+	public AdminBoardDTO qnaread(Long bno);
+
+	public void qnawrite(AdminReplyDTO dto);
 
 	
 	
+	
+	
+	// ------------ Club manager
+	
+	public List<AdminClubDTO> getclubList();
 	
 
 }

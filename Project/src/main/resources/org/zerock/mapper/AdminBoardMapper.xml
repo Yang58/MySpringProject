@@ -17,24 +17,11 @@
 
 
 	<select id="getTotalCount" resultType="int">
-		select count(*) from board where bno > 0 and  board_type in ('01') 
+		select count(*) from board
+		where bno > 0 and board_type in ('01')
 	</select>
-	
-	<select id="getqnaList"
-		resultType="org.zerock.domain.AdminBoardDTO"> <!-- boardVO타입으로 배열형식으로 데이터를 쌓는다. 컬렉션 구조 에서 list 배열형식으로 -->
-	<![CDATA[
-		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num , c.cate_num , cate_kind
-		from board b left outer join category c
-		on b.cate_num = c.cate_num where board_type in ('02') 
-		order by bno desc
-	]]>
-	</select> <!-- xml에서 사용하는 select 구문의 id 속성값이 boardmapper 인터페이스 메소드의 이름이다 -->
-	
-	<select id="qnaTotalCount" resultType="int">
-		select count(*) from board where bno > 0 and  board_type in ('02') 
-	</select>
-	
-	<!-- prefixOverrides   -->
+
+	<!-- prefixOverrides -->
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
 			<foreach collection="typeArr" item="type">
@@ -54,11 +41,12 @@
 			</foreach>
 		</trim>
 	</sql>
-	
-	
-	<!-- 페이징  -->
-	<select id="getListWithPaging" resultType="org.zerock.domain.AdminBoardDTO"
-			parameterType="org.zerock.domain.Criteria">
+
+
+	<!-- 페이징 -->
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.AdminBoardDTO"
+		parameterType="org.zerock.domain.Criteria">
 		<![CDATA[
 		select rn,  bno , title , content , reg_date , mod_date , view_count ,	secret_type , 
 		board_type , id , cate_num, cate_kind 
@@ -73,8 +61,8 @@
             order by bno desc)
         where 
         ]]>
-        
-        <include refid="criteria"></include>
+
+		<include refid="criteria"></include>
         
         <![CDATA[
         board_type = '01' 
@@ -87,8 +75,11 @@
 	</select>
 	<!-- 작성 -->
 	<insert id="write">
-		insert into board(bno , title , content , reg_date ,view_count , secret_type, board_type , id , cate_num)
-		values (seq_annoboard.nextval, #{title} , #{content} , sysdate , 1 , 0 , '00' ,'admin' , '00' )
+		insert into board(bno , title , content , reg_date
+		,view_count , secret_type, board_type , id , cate_num)
+		values
+		(seq_annoboard.nextval, #{title} , #{content} , sysdate , 1 , 0 , '00'
+		,'admin' , '00' )
 	</insert>
 
 	<!-- 이거는 mvcBoarddto의 selectview와 같다 -->
@@ -99,7 +90,7 @@
 	<update id="update">
 		update board
 		set title = #{title},
-		content = #{content} ,
+		content = #{content},
 		mod_date = sysdate
 		where bno= #{bno}
 	</update>
@@ -109,6 +100,56 @@
 	</delete>
 
 
+
+
+
+	<!-- QNA  -->
+	
+	<select id="getqnaList"
+		resultType="org.zerock.domain.AdminBoardDTO"> 
+	<![CDATA[
+		select b.* , c.*, r.ans_type
+		from board b full join category c
+		on b.cate_num = c.cate_num 
+        left join reply r
+        on b.bno = r.bno
+        where board_type in ('02') 
+        order by b.bno desc
+	]]>
+	</select> 
+
+	<select id="qnaTotalCount" resultType="int">
+		select count(*) from board
+		where bno > 0 and board_type in ('02')
+	</select>
+
+
+	<select id="qnaread" resultType="org.zerock.domain.AdminBoardDTO"><!-- vo 클래스에 담아서 받아옴 -->
+		select b.* , c.cate_kind from board b inner join category c
+		on c.cate_num = b.cate_num 
+		where bno = #{bno}
+	</select>
+	
+	<insert id="qnawrite">
+	
+		insert into reply 
+		values ( seq_reply.nextval ,  #{answer} , sysdate , null , 1 ,  #{bno});
+	
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getclubList" resultType="org.zerock.domain.AdminClubDTO"><!-- vo 클래스에 담아서 받아옴 -->
+		select * from club where cno > 0
+	</select>
+
+	
 </mapper> 
 
 

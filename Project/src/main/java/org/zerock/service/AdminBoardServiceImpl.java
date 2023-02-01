@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.AdminClubDTO;
+import org.zerock.domain.AdminReplyDTO;
 import org.zerock.domain.Criteria;
 import org.zerock.mapper.AdminBoardMapper;
 
@@ -79,5 +81,30 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	public List<AdminBoardDTO> qnaList() {
 		log.info("get List with criteria : " );
 		return mapper.getqnaList();
+	}
+
+
+	@Override
+	public AdminBoardDTO qnaread(Long bno) {
+		log.info("Q&A Read ....." + bno);
+		return mapper.read(bno);
+	}
+
+
+	@Override
+	public void qnawrite(AdminReplyDTO dto) {
+		log.info("qna_write ... : " + dto);
+		mapper.qnawrite(dto);
+	}
+
+
+	
+	
+	
+	// ------------ Club manager
+	@Override
+	public List<AdminClubDTO> getclubList() {
+		log.info("AdminClub List..");
+		return mapper.getclubList();
 	}
 }

@@ -13,18 +13,11 @@ a
 	rel="stylesheet">
 
 <div class="container" style="padding-top: 100px;">
-
-
 	<div class="row flex-lg-nowrap">
-
 		<div class="col">
-
-
 			<div class="row flex-lg-nowrap">
 				<div class="col mb-3">
 					<div class="e-panel card">
-
-
 						<div class="card-body">
 							<div class="card-title">
 								<div class="container">
@@ -64,14 +57,37 @@ a
 															value="${qnaboard.reg_date}" pattern="yyyy-MM-dd" /></td>
 													<td class="text-center align-middle">
 														<div class="btn-group align-top">
+															
+															<c:choose>
+																<c:when test="${qnaboard.ans_type eq 1 }">
+																	<button class="btn btn-sm btn-outline-secondary "
+																	type="button" data-bs-toggle="modal"
+																	data-bs-target="#answer-modal"
+																	data-backdrop="static" 
+																	data-rno= "${qnaboard.bno}"
+																	data-cate="${qnaboard.cate_kind}"
+																	data-id="${qnaboard.id}"
+																	data-title="${qnaboard.title}"
+																	data-content="${qnaboard.content}"
+																	>수정</button>
+																</c:when>
+																<c:otherwise>
+																	<button class="btn btn-sm btn-outline-secondary "
+																	type="button" data-bs-toggle="modal"
+																	data-bs-target="#answer-modal"
+																	data-backdrop="static" 
+																	data-cate="${qnaboard.cate_kind}"
+																	data-id="${qnaboard.id}"
+																	data-title="${qnaboard.title}"
+																	data-content="${qnaboard.content}"
+																	>답변</button>
+																</c:otherwise>
+															</c:choose>
+														
+														
 															<button class="btn btn-sm btn-outline-secondary "
 																type="button" data-bs-toggle="modal"
-																onclick="location.href='?bno=${qnaboard.bno}'"
-																data-bs-target="#answer-modal">답변</button>
-															<button class="btn btn-sm btn-outline-secondary "
-																type="button" data-bs-toggle="modal"
-																data-bs-target="#delete-modal">삭제</button>
-
+																data-bs-target="#delete-modal">삭제</button>	
 														</div>
 													</td>
 												</tr>
@@ -141,29 +157,29 @@ a
 			</div>
 			<div class="modal-body">
 				<div class="py-1">
-					<form class="form" novalidate="">
+					<form class="form" action="#">
 						<div class="row">
 							<div class="col">
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
 											<label>유형</label><input class="form-control"
-												readonly="readonly" type="text" name="name"
-												placeholder="John Smith" value="활동 문의">
+												readonly="readonly" type="text" name="cate"
+												value="${cate}">
 										</div>
 									</div>
 									<div class="col">
 										<div class="form-group">
 											<label>작성자</label> <input class="form-control"
-												readonly="readonly" type="text" name="username"
-												placeholder="johnny.s" value="양형준">
+												readonly="readonly" type="text" name="id"
+												value="양형준">
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<label>제목</label> <input class="form-control" type="text"
+											<label>제목</label> <input class="form-control" type="text" name ="title"
 												readonly="readonly" value="더 많은 활동을 추가해주세요.">
 										</div>
 									</div>
@@ -172,8 +188,7 @@ a
 									<div class="col mb-3">
 										<div class="form-group">
 											<label>상세 내용</label>
-											<textarea class="form-control" rows="5"
-												placeholder="추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!추가해줘어ㅓ어ㅓ~!"
+											<textarea class="form-control" rows="5" name="content" placeholder=""
 												readonly="readonly"></textarea>
 										</div>
 									</div>
@@ -202,7 +217,21 @@ a
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#answer-modal").on("show.bs.modal", function(e) {
+            var cate = $(e.relatedTarget).data('cate');
+            var id = $(e.relatedTarget).data('id');
+            var title = $(e.relatedTarget).data('title');
+            var content  = $(e.relatedTarget).data('content');
+			
+            $("input[name=cate]").attr("value", cate);
+            $("input[name=id]").attr("value", id);
+            $("input[name=title]").attr("value", title);
+            $("textarea[name=content]").prop("placeholder", content);
+        });
+    });
+</script>
 
 
 <%@include file="../include/footer.jsp"%>

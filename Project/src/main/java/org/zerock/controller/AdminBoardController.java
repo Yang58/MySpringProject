@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.zerock.domain.AdminBoardDTO;
+import org.zerock.domain.AdminReplyDTO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
 import org.zerock.service.AdminBoardService;
@@ -96,10 +97,6 @@ public class AdminBoardController {
 		return "redirect:/admin/freelist";
 	}
 	
-	
-	
-	
-	
 	//-------------------------------- QNA 
 	
 	
@@ -114,5 +111,35 @@ public class AdminBoardController {
 		return "/admin/qnaBoard/qnaboard";
 	}
 	
+	
+	@PostMapping("/qnawrite")
+	public String postQnaWrite(AdminReplyDTO dto){
+		log.info("controller write run .... ");
+		service.qnawrite(dto);
+		return "redirect:/admin/freelist";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping("/club_management")
+	public String club_management(Model model) {
+		
+		model.addAttribute("club",service.getclubList());
+		return "/admin/management/club_management";
+	}
 	
 }
