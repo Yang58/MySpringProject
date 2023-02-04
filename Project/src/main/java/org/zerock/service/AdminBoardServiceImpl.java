@@ -63,13 +63,6 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		return mapper.getListWithPaging(cri);
 	}
 
-
-	@Override
-	public int getqnaTotal() {
-		log.info("get Total count ");
-		return mapper.qnaTotalCount();
-	}
-	
 	@Override
 	public int getTotal(Criteria cri) {
 		log.info("get Total count ");
@@ -77,17 +70,21 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 	}
 
 
+	
+	// ---------------------- Q&A 
+	
+
 	@Override
-	public List<AdminBoardDTO> qnaList() {
-		log.info("get List with criteria : " );
-		return mapper.getqnaList();
+	public int getqnaTotal(Criteria cri) {
+		log.info("get Total count ");
+		return mapper.qnaTotalCount(cri);
 	}
-
-
+	
+	
 	@Override
-	public AdminBoardDTO qnaread(Long bno) {
-		log.info("Q&A Read ....." + bno);
-		return mapper.read(bno);
+	public List<AdminBoardDTO> qnaList(Criteria cri) {
+		log.info("get List with criteria : " );
+		return mapper.getqnaList(cri);
 	}
 
 
@@ -96,7 +93,28 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		log.info("qna_write ... : " + dto);
 		mapper.qnawrite(dto);
 	}
+	
+	
+	@Override
+	public void answerupdate(AdminReplyDTO dto) {
+		log.info("qna_update ... : " + dto);
+		mapper.answerupdate(dto);
+	}
 
+	
+
+	
+	
+	// --------------------reply 
+	
+	
+	@Override
+	public void ansdelete(Long bno) {
+		log.info("reply delete .... : " + bno);
+		mapper.ansdelete(bno);
+		
+	}
+	
 
 	
 	
@@ -107,4 +125,9 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		log.info("AdminClub List..");
 		return mapper.getclubList();
 	}
+
+
+
+
+
 }

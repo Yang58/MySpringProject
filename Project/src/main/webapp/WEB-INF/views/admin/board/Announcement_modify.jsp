@@ -27,7 +27,7 @@
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<input type="hidden" id="bno" name="bno" value="${modify.bno }"/>
+											<input type="hidden" id="bno" name="bno" value="${modify.bno}"/>
 											<label>제목</label> <input class="form-control" id="title" name="title" type="text"
 												value="<c:out value="${modify.title}" />">
 										</div>

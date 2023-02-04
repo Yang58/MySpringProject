@@ -33,11 +33,16 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 	
 	// -------------- Q&A 
 
-	public int qnaTotalCount();
-
-	public List<AdminBoardDTO> getqnaList();
+	/*
+	 * public int qnaTotalCount();
+	 * 
+	 * public List<AdminBoardDTO> getqnaList();
+	 */
 	
-	public AdminBoardDTO qnaread(Long bno);
+	public int qnaTotalCount(Criteria cri);
+	
+	public List<AdminBoardDTO> getqnaList(Criteria cri);
+	
 
 	public void qnawrite(AdminReplyDTO dto);
 
@@ -48,6 +53,10 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 	// ------------ Club manager
 	
 	public List<AdminClubDTO> getclubList();
+
+	public void answerupdate(AdminReplyDTO dto);
+
+	public void ansdelete(Long bno);
 	
 
 }

@@ -41,7 +41,7 @@
 											<form id='searchForm' action="/admin/freelist" method='get'>
 												<select name='type'>
 													<option value=""
-														<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>
+														<c:out value="${pageMaker.cri.type == null ? 'selected':''}"/>>
 														--</option>
 													<option value="T"
 														<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':''}"/>>
@@ -110,7 +110,6 @@
 														</td>
 													</tr>
 												</c:forEach>
-
 												<c:forEach items="${list}" var="board">
 													<tr>
 														<td class="align-middle align-middle text-center"><c:out
@@ -207,7 +206,6 @@
 		</div>
 	</div>
 </div>
-
 <script>
 	$(document).ready(function() {
 		var actionForm = $("#actionForm");

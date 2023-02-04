@@ -25,11 +25,9 @@ public interface AdminBoardService {
 
 	// ------------------- Q&A
 	
-	public int getqnaTotal();
+	public List<AdminBoardDTO> qnaList(Criteria cri);
 
-	public List<AdminBoardDTO> qnaList();
-	
-	public AdminBoardDTO qnaread(Long bno);
+	public int getqnaTotal(Criteria cri);
 
 	public void qnawrite(AdminReplyDTO dto);
 	
@@ -37,5 +35,9 @@ public interface AdminBoardService {
 	// ------------ Club manager
 	
 	public List<AdminClubDTO> getclubList();
+
+	public void answerupdate(AdminReplyDTO dto);
+
+	public void ansdelete(Long bno);
 
 }
