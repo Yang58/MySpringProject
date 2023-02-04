@@ -73,12 +73,15 @@
            order by bno desc
 		]]>
 	</select>
+	
+	
+
 	<!-- 작성 -->
 	<insert id="write">
 		insert into board(bno , title , content , reg_date
 		,view_count , secret_type, board_type , id , cate_num)
 		values
-		(seq_annoboard.nextval, #{title} , #{content} , sysdate , 1 , 0 , '00'
+		(seq_board.nextval, #{title} , #{content} , sysdate , 1 , 0 , '00'
 		,'admin' , '00' )
 	</insert>
 
@@ -98,48 +101,69 @@
 	<delete id="delete">
 		delete from board where bno = #{bno}
 	</delete>
+	
+	
+	
+	
+	<delete id="ansdelete">
+		delete from reply where bno = #{bno}
+	</delete>
 
-
+	
 
 
 
 	<!-- QNA  -->
 	
+		<!-- 작성 -->
 	<select id="getqnaList"
-		resultType="org.zerock.domain.AdminBoardDTO"> 
-	<![CDATA[
-		select b.* , c.*, r.ans_type
-		from board b full join category c
-		on b.cate_num = c.cate_num 
-        left join reply r
-        on b.bno = r.bno
-        where board_type in ('02') 
-        order by b.bno desc
-	]]>
-	</select> 
+		resultType="org.zerock.domain.AdminBoardDTO"
+		parameterType="org.zerock.domain.Criteria">
+		<![CDATA[
+		    select bcr.*
+			from (
+			select /*+INDEX_DESC(board PK_BOARD) */
+			rownum rn , bc.* , r.ans_type , r.reply
+			from (select b.* , c.cate_kind 
+			from board b inner join category c 
+			on b.cate_num = c.cate_num
+			order by bno desc) bc left join reply r
+            on bc.bno = r.bno
+			where board_type = '02' 
+			and rownum <= #{pageNum} * #{amount}
+			order by bc.bno desc
+			) bcr
+			where rn > (#{pageNum} -1) * #{amount}
+			order by bcr.bno desc
+		]]>
+	</select>
 
 	<select id="qnaTotalCount" resultType="int">
 		select count(*) from board
 		where bno > 0 and board_type in ('02')
 	</select>
 
-
-	<select id="qnaread" resultType="org.zerock.domain.AdminBoardDTO"><!-- vo 클래스에 담아서 받아옴 -->
-		select b.* , c.cate_kind from board b inner join category c
-		on c.cate_num = b.cate_num 
-		where bno = #{bno}
-	</select>
+<!-- 
+	<select id="qnaread" resultType="org.zerock.domain.AdminBoardDTO">vo 클래스에 담아서 받아옴
+		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num , cate_kind
+		from board b left outer join category c
+		on b.cate_num = c.cate_num
+        where b.bno = #{bno}
+	</select> -->
 	
 	<insert id="qnawrite">
-	
 		insert into reply 
-		values ( seq_reply.nextval ,  #{answer} , sysdate , null , 1 ,  #{bno});
-	
+		values ( seq_reply.nextval ,  #{reply} , sysdate , null , 1 ,  #{bno} , 'admin')
 	</insert>
 	
 	
 	
-	
+	<update id="answerupdate">
+		update reply
+		set 
+		reply = #{reply}
+		where bno= #{bno}
+	</update>
 	
 	
 	

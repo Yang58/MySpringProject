@@ -26,7 +26,7 @@ public class AdminBoardController {
 	
 	@GetMapping("/home")
 	public String goHome() {
-		return "/admin/main";
+		return "redirect:/admin/home";
 	}
 
 
@@ -97,28 +97,51 @@ public class AdminBoardController {
 		return "redirect:/admin/freelist";
 	}
 	
-	//-------------------------------- QNA 
+	
+	//-------------------------------- Q&A 
 	
 	
 	@GetMapping("/qnalist")
-	public String qnalist( Model model) {
-		model.addAttribute("qnaList", service.qnaList());
-		log.info("qnaList : " + service.qnaList());
-		int total = service.getqnaTotal();
-		log.info("total : " + total);
-		model.addAttribute("total", service.getqnaTotal());
+	public String qnalist( Criteria cri , Model model) {
+		log.info("qnaList : " + service.qnaList(cri));
+		log.info("list :" + cri);
+		int total = service.getqnaTotal(cri);
+		model.addAttribute("qnaList", service.qnaList(cri));
+		model.addAttribute("total", service.getqnaTotal(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		return "/admin/qnaBoard/qnaboard";
 	}
 	
 	
-	@PostMapping("/qnawrite")
-	public String postQnaWrite(AdminReplyDTO dto){
-		log.info("controller write run .... ");
-		service.qnawrite(dto);
-		return "redirect:/admin/freelist";
+	// 글 삭제 POST
+	@PostMapping("/qnadelete")
+	public String postqnaDelete(@RequestParam("bno") Long bno) {
+		log.info("post QnA delete " + bno);
+	
+		service.ansdelete(bno);
+		service.delete(bno);
+		 
+		return "redirect:/admin/qnalist";
 	}
 	
+	// 답변이 없는 문의일 경우 
+	@PostMapping("/qnawrite")
+	public String postQnaWrite(AdminReplyDTO dto){
+		service.qnawrite(dto);
+		log.info("controller write run .... " + dto);
+		return "redirect:/admin/qnalist";
+	}
+	
+	// 답변 수정 POST
+	@PostMapping("/qnaupdate")
+	public String postAnswer(AdminReplyDTO dto) {
+		log.info("post QnA update" + dto );
+
+		service.answerupdate(dto);
+
+		return "redirect:/admin/qnalist";
+	}
 	
 	
 	

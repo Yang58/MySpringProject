@@ -20,5 +20,5 @@ public class AdminBoardDTO {
 	
 	private String cate_kind;
 	private int ans_type;
-	
+	private String reply;
 }
