@@ -32,6 +32,20 @@ public interface AdminBoardService {
 	public void qnawrite(AdminReplyDTO dto);
 	
 	
+	// ------------------- reply 
+	
+	// 댓글 리스트 
+	public List<AdminReplyDTO> getReplyList(Long bno); 
+	
+	public int getReplyTotal(Criteria cri);
+	// 댓글 페이징 
+	public List<AdminReplyDTO> getReplyPagingList(Criteria cri);
+
+	// 자유 게시판 댓글 작성 
+	public void replywrite(AdminReplyDTO dto);
+	
+	
+	
 	// ------------ Club manager
 	
 	public List<AdminClubDTO> getclubList();

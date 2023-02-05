@@ -19,7 +19,6 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 
 	//@Setter(onMethod_=@Autowired) //생성자에 의한 주입 (단일생성자는 자동 의존주입이 된다)
 	private AdminBoardMapper mapper;
-
 	
 	@Override
 	public void write(AdminBoardDTO dto) {
@@ -100,24 +99,6 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		log.info("qna_update ... : " + dto);
 		mapper.answerupdate(dto);
 	}
-
-	
-
-	
-	
-	// --------------------reply 
-	
-	
-	@Override
-	public void ansdelete(Long bno) {
-		log.info("reply delete .... : " + bno);
-		mapper.ansdelete(bno);
-		
-	}
-	
-
-	
-	
 	
 	// ------------ Club manager
 	@Override
@@ -126,6 +107,45 @@ public class AdminBoardServiceImpl implements AdminBoardService {
 		return mapper.getclubList();
 	}
 
+	
+	// ------------------- reply 
+	
+	// 자유게시판 댓글 리스트 
+	@Override
+	public List<AdminReplyDTO> getReplyList(Long bno) {
+		log.info("get Reply List ....  " );
+		return mapper.getReplyList(bno);
+	}
+
+	// 자유 게시판 댓글 작성 
+	@Override
+	public void replywrite(AdminReplyDTO dto) {
+		log.info("Free Board Reply Write : " + dto);
+		mapper.replywrite(dto);
+		
+	}
+	
+	// Q&A 게시판 답글 삭제 
+	@Override
+	public void ansdelete(Long bno) {
+		log.info("reply delete .... : " + bno);
+		mapper.ansdelete(bno);
+		
+	}
+
+	// 자유 게시판 댓글 페이징 
+	@Override
+	public List<AdminReplyDTO> getReplyPagingList(Criteria cri) {
+		log.info("get Reply Paging List ....  " );
+		return mapper.getReplyPagingList(cri);
+	}
+	
+	@Override
+	public int getReplyTotal(Criteria cri) {
+		log.info("get Total count ");
+		return mapper.getReplyTotal(cri);
+	}
+	
 
 
 

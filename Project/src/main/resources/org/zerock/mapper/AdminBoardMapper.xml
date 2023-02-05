@@ -3,18 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mybatis에 대한 이용이라는 선언 -->
-<mapper namespace="org.zerock.mapper.AdminBoardMapper"> <!-- 패키지명.인터페이스명 / 연결해주는 유일한 근거 -->
+<mapper namespace="org.zerock.mapper.AdminBoardMapper">
 
-	<select id="getList"
-		resultType="org.zerock.domain.AdminBoardDTO"> <!-- boardVO타입으로 배열형식으로 데이터를 쌓는다. 컬렉션 구조 에서 list 배열형식으로 -->
+	<select id="getList" resultType="org.zerock.domain.AdminBoardDTO"> 
 	<![CDATA[
 		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num , c.cate_num , cate_kind
 		from board b left outer join category c
 		on b.cate_num = c.cate_num where board_type in ('00') 
 		order by bno desc
 	]]>
-	</select> <!-- xml에서 사용하는 select 구문의 id 속성값이 boardmapper 인터페이스 메소드의 이름이다 -->
-
+	</select> 
 
 	<select id="getTotalCount" resultType="int">
 		select count(*) from board
@@ -76,7 +74,7 @@
 	
 	
 
-	<!-- 작성 -->
+	<!-- 자유게시판 게시글 작성 -->
 	<insert id="write">
 		insert into board(bno , title , content , reg_date
 		,view_count , secret_type, board_type , id , cate_num)
@@ -85,8 +83,7 @@
 		,'admin' , '00' )
 	</insert>
 
-	<!-- 이거는 mvcBoarddto의 selectview와 같다 -->
-	<select id="read" resultType="org.zerock.domain.AdminBoardDTO"><!-- vo 클래스에 담아서 받아옴 -->
+	<select id="read" resultType="org.zerock.domain.AdminBoardDTO">
 		select * from board where bno = #{bno}
 	</select>
 
@@ -98,26 +95,54 @@
 		where bno= #{bno}
 	</update>
 
+	<!-- 자유 게시판 게시물 삭제  -->
 	<delete id="delete">
 		delete from board where bno = #{bno}
 	</delete>
 	
-	
-	
-	
+	<!-- Qna게시판 답글 삭제  -->
 	<delete id="ansdelete">
 		delete from reply where bno = #{bno}
 	</delete>
 
+
+	<!-- 자유 게시판 댓글 리스트  -->
+	<select id="getReplyList" resultType="org.zerock.domain.AdminReplyDTO">
+		select id , reply , reg_date
+		from reply where bno = #{bno} 
+		order by rno desc
+	</select>
+
+	<!-- 자유게시판 댓글 작성 -->
+	<insert id="replywrite" >
+		insert into reply
+		values (seq_reply.nextval , #{reply} , sysdate , null , 0 , #{bno} , 'admin' )
+	</insert>
+
+
+	<select id="getReplyTotal" resultType="int">
+		select count(*) from reply
+		where bno = #{bno}
+	</select>
 	
-
-
-
-	<!-- QNA  -->
 	
-		<!-- 작성 -->
-	<select id="getqnaList"
-		resultType="org.zerock.domain.AdminBoardDTO"
+	<!-- 자유 게시판 댓글 페이징-->
+	<select id="getReplyPagingList" resultType="org.zerock.domain.AdminReplyDTO"
+	 	parameterType="org.zerock.domain.Criteria">
+	 	<![CDATA[
+		select id , reply , reg_date
+		from ( select /*+INDEX_DESC(reply PK_REPLY) */
+		rownum rn , id , reply , reg_date 
+		from reply 
+		where bno = #{bno} and rownum <= #{pageNum} * #{amount}
+		order by rno desc
+		) where rn > (#{pageNum} -1) * #{amount} 
+		]]>
+	</select>
+	
+	
+	<!-- Q&A 리스트 -->
+	<select id="getqnaList" resultType="org.zerock.domain.AdminBoardDTO"
 		parameterType="org.zerock.domain.Criteria">
 		<![CDATA[
 		    select bcr.*
@@ -137,27 +162,22 @@
 			order by bcr.bno desc
 		]]>
 	</select>
-
+	
+	<!-- Q&A 리스트 개수 -->
 	<select id="qnaTotalCount" resultType="int">
 		select count(*) from board
 		where bno > 0 and board_type in ('02')
 	</select>
-
-<!-- 
-	<select id="qnaread" resultType="org.zerock.domain.AdminBoardDTO">vo 클래스에 담아서 받아옴
-		select bno , title , content , reg_date , mod_date , view_count , secret_type , board_type , id , b.cate_num , cate_kind
-		from board b left outer join category c
-		on b.cate_num = c.cate_num
-        where b.bno = #{bno}
-	</select> -->
-	
+		
+	<!-- Q&A 작성 -->
 	<insert id="qnawrite">
 		insert into reply 
 		values ( seq_reply.nextval ,  #{reply} , sysdate , null , 1 ,  #{bno} , 'admin')
 	</insert>
 	
 	
-	
+		
+	<!-- Q&A 답변 수정  -->
 	<update id="answerupdate">
 		update reply
 		set 

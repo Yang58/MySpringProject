@@ -47,7 +47,18 @@ public interface AdminBoardMapper { //인터페이스의 추상메서드 이름�
 	public void qnawrite(AdminReplyDTO dto);
 
 	
+	// ------------------- reply 
 	
+	// 댓글 리스트 
+	public List<AdminReplyDTO> getReplyList(Long bno); 
+	
+	// 자유 게시판 댓글 작성 
+	public void replywrite(AdminReplyDTO dto);
+	
+	// 댓글 페이징 
+	public int getReplyTotal(Criteria cri);
+
+	public List<AdminReplyDTO> getReplyPagingList(Criteria cri);
 	
 	
 	// ------------ Club manager

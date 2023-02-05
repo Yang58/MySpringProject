@@ -86,34 +86,47 @@
 	</div>
 
 </div>
+
+
 <c:if test="${read.board_type eq '01'}">
 	<!-- 댓글리스트 -->
-	<hr>
-	<div class="container">
-		<div class="u_cbox_info">
-			<span class="u_cbox_info_main"><a
-				href="https://blog.naver.com/donaldpak" class="u_cbox_name"
-				data-log="RPC.nick" target="_blank"> <span
-					class="u_cbox_name_area"><span class="u_cbox_nick_area">
-							<span class="u_cbox_nick">작성자 아이디</span>
-					</span></span>
-			</a></span> <span class="u_cbox_info_sub"></span>
+
+	<c:forEach items="${reply}" var="reply">
+		<hr>
+		<div class="container">
+			<div class="u_cbox_info">
+				<span class="u_cbox_info_main"><a
+					href="https://blog.naver.com/donaldpak" class="u_cbox_name"
+					data-log="RPC.nick" target="_blank"> <span
+						class="u_cbox_name_area"><span class="u_cbox_nick_area">
+								<span class="u_cbox_nick">${reply.id}</span>
+						</span></span>
+				</a></span> <span class="u_cbox_info_sub"></span>
+			</div>
+			<div class="u_cbox_text_wrap">
+				<span class="u_cbox_contents" data-lang="ko"> ${reply.reply }
+				</span>
+			</div>
+			<div class="u_cbox_info_base">
+				<span class="u_cbox_date" data-value="2023-02-01T12:01:40+0900">
+					<fmt:formatDate value="${reply.reg_date}" pattern="yyyy-MM-dd" />
+				</span>
+				<c:if test="${reply.id != 'admin' }">
+					<span class="u_cbox_work_main"><a href="#"
+						class="u_cbox_btn_report" data-action="report#request"
+						data-param="commentNo:'782259250444370282',objectId:'102238556_201_223001416099'"
+						data-log="RPC.report" target="_blank"> <span
+							class="u_cbox_ico_bar"></span> <span class="u_cbox_ico_report"></span>
+							<span class="u_cbox_in_report"> 신고 </span></a></span>
+				</c:if>
+			</div>
+			<!--    <div class="u_cbox_tool"><a role="button"  class="u_cbox_btn_reply reply_re" >
+	        <strong class="u_cbox_reply_txt">답글</strong></a> -->
 		</div>
-		<div class="u_cbox_text_wrap">
-			<span class="u_cbox_contents" data-lang="ko"> 댓글 </span>
-		</div>
-		<div class="u_cbox_info_base">
-			<span class="u_cbox_date" data-value="2023-02-01T12:01:40+0900">댓글
-				작성일</span><span class="u_cbox_work_main"><a href="#"
-				class="u_cbox_btn_report" data-action="report#request"
-				data-param="commentNo:'782259250444370282',objectId:'102238556_201_223001416099'"
-				data-log="RPC.report" target="_blank"><span
-					class="u_cbox_ico_bar"></span> <span class="u_cbox_ico_report"></span>
-					<span class="u_cbox_in_report">신고</span></a></span>
-		</div>
-		<!--    <div class="u_cbox_tool"><a role="button"  class="u_cbox_btn_reply reply_re" >
-        <strong class="u_cbox_reply_txt">답글</strong></a> -->
-	</div>
+
+	</c:forEach>
+
+
 
 
 	<!-- 댓글리스트에 답글달기 -->
@@ -128,35 +141,55 @@
 	</div>
 	<hr>
 
-	<!-- 페이징 -->
-
-	<div class="d-flex justify-content-center">
-		<ul class="pagination mt-3 mb-0">
-			<li class="disabled page-item"><a href="#" class="page-link">‹</a></li>
-			<li class="active page-item"><a href="#" class="page-link">1</a></li>
-			<li class="page-item"><a href="#" class="page-link">2</a></li>
-			<li class="page-item"><a href="#" class="page-link">3</a></li>
-			<li class="page-item"><a href="#" class="page-link">4</a></li>
-			<li class="page-item"><a href="#" class="page-link">5</a></li>
-			<li class="page-item"><a href="#" class="page-link">›</a></li>
-			<li class="page-item"><a href="#" class="page-link">»</a></li>
-		</ul>
-	</div>
 
 	<!-- 댓글달기 -->
-	<form action="#">
+	<form action="/admin/replywrite" method="POST">
 		<div class="container"
 			style="border: 1px solid black; padding: 10px; margin-top: 20px;">
 			<div style="padding: 5px;">
-				<i class="fa-solid fa-user"></i>weasel
+				<i class="fa-solid fa-user"></i> admin
 			</div>
-			<textarea placeholder="댓글을 입력해주세요"
-				style="width: 100%; height: 100px; overflow-y: scroll"></textarea>
-			<button class="btn btn-primary">등록</button>
+
+			<div class="row">
+				<div class="col-11">
+					<input id="reply" name="reply" type="text"
+						style="width: 100%; height: 50px;" placeholder="댓글을 입력해주세요" /> <input
+						id="bno" name="bno" type="hidden" value="${read.bno}" />
+				</div>
+				<div class="col-1">
+					<button type="submit" class="btn btn-primary">등록</button>
+				</div>
+			</div>
 		</div>
 	</form>
+	<!-- 페이징 기능  -->
+	<div class='d-flex justify-content-center pull-right'
+		style="width: 100%;">
+		<ul class="pagination mt-3 mb-0">
+			<c:if test="${pageMaker.prev}">
+				<li class="paginate_button previous"><a class="page-link"
+					href="${pageMaker.startPage-1 }"> Previous</a></li>
+			</c:if>
 
+			<c:forEach var="num" begin="${pageMaker.startPage}"
+				end="${pageMaker.endPage}">
+				<li class="paginate_button ${pageMaker.cri.pageNum==num ? "active":""} ">
+					<a class="page-link" href="${num}">${num}</a>
+				</li>
+			</c:forEach>
 
+			<c:if test="${pageMaker.next }">
+				<li class="paginate_button next"><a class="page-link"
+					href="${pageMaker.endPage +1 }">NEXT</a></li>
+			</c:if>
+		</ul>
+	</div>
+
+	<form id='actionForm' action="/admin/freeread" method='get'>
+		<input type='hidden' name='bno' value='${read.bno}'>
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	</form>
 </c:if>
 <!-- 사이드바 맨위 맨아래 -->
 <a style="display: scroll; position: fixed; bottom: 80px; right: 30px;"
@@ -176,7 +209,6 @@
 		formObj.submit();
 
 	});
-
 	// 삭제 버튼 클릭
 	$("#delete_btn").click(function() {
 
@@ -184,6 +216,18 @@
 		formObj.attr("method", "post");
 		formObj.submit();
 
+	});
+</script>
+
+<script>
+	$(document).ready(function() {
+		var actionForm = $("#actionForm");
+		$(".paginate_button a").on("click", function(e) {
+			e.preventDefault();
+			console.log('click');
+			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+			actionForm.submit();
+		});
 	});
 </script>
 

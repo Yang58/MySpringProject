@@ -36,20 +36,14 @@
 									<div class="table-responsive">
 										<table class="table widget-26">
 											<tbody>
+											<c:forEach items="${list}" var="member">
 												<tr>
 													<td>
-														<div class="widget-26-job-emp-img">
-															<img
-																src="https://bootdey.com/img/Content/avatar/avatar5.png"
-																alt="Company" />
-														</div>
-													</td>
-													<td>
 														<div class="widget-26-job-title">
-															<a href="#"> 사원 번호 </a>
+															<a href="#"> 사원 번호 : <c:out value="${member.empno}"/> </a>
 															<p class="m-0">
 																<a href="#" class="employer-name">이름</a> <span
-																	class="text-muted time">이름</span>
+																	class="text-muted time"><c:out value="${member.name}"/></span>
 															</p>
 														</div>
 													</td>
@@ -57,12 +51,13 @@
 														<div class="widget-26-job-info">
 															<p class="type m-0">가입일자</p>
 															<p class="text-muted m-0">
-																<span class="location">2010/10/10</span>
+																<span class="location"><fmt:formatDate
+																value="${member.regidate}" pattern="yyyy-MM-dd" /></span>
 															</p>
 														</div>
 													</td>
 													<td>
-															<div class="widget-26-job-info">
+														<div class="widget-26-job-info">
 															<p class="type m-0">활동 개수</p>
 															<p class="text-muted m-0">
 																<span class="location">3</span>
@@ -80,6 +75,7 @@
 														</div>
 													</td>
 												</tr>
+												</c:forEach>
 											</tbody>
 										</table>
 									</div>

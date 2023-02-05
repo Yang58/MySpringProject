@@ -16,6 +16,9 @@ public class Criteria {
 	private String type;
 	private String keyword;
 	
+	// 게시글 번호 
+	private Long bno;
+	
 	public Criteria() {
 		this(1,10);
 	}
@@ -25,6 +28,9 @@ public class Criteria {
 		this.amount = amount;
 	}
 	
+	
+	
+	// 검색 기능 
 	public String[] getTypeArr() {
 		return type == null ? new String[] {} : type.split("");
 	} // 문자열 자르기 

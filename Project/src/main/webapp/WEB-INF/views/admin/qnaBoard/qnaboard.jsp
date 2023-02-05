@@ -108,29 +108,29 @@ a
 										</div>
 									</div>
 
-									<!-- 페이징 기능  -->
-									<div class='pull-right'>
-										<ul class="pagination">
+										<!-- 페이징 기능  -->
+									<div class='d-flex justify-content-center pull-right' style="width:100%;">
+										<ul class="pagination mt-3 mb-0">
 											<c:if test="${pageMaker.prev}">
-												<li class="paginate_button previous"><a
+												<li class="paginate_button previous"><a  class="page-link"
 													href="${pageMaker.startPage-1 }"> Previous</a></li>
 											</c:if>
 
 											<c:forEach var="num" begin="${pageMaker.startPage}"
 												end="${pageMaker.endPage}">
 												<li class="paginate_button ${pageMaker.cri.pageNum==num ? "active":""} ">
-													<a href="${num}">${num}</a>
+													<a  class="page-link" href="${num}">${num}</a>
 												</li>
 											</c:forEach>
 
 											<c:if test="${pageMaker.next }">
-												<li class="paginate_button next"><a
+												<li class="paginate_button next"><a  class="page-link"
 													href="${pageMaker.endPage +1 }">NEXT</a></li>
 											</c:if>
 										</ul>
 									</div>
 
-									<form id='actionForm' action="/admin/qnalist" method='get'>
+									<form id='actionForm' action="/admin/freelist" method='get'>
 										<input type='hidden' name='pageNum'
 											value='${pageMaker.cri.pageNum}'>  <input
 											type='hidden' name='amount' value='${pageMaker.cri.amount}'>

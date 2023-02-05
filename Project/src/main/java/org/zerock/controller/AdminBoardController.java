@@ -1,5 +1,6 @@
 package org.zerock.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,21 +15,22 @@ import org.zerock.domain.PageDTO;
 import org.zerock.service.AdminBoardService;
 
 import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/admin/*")
+@RequestMapping("/admin_board/*")
 @AllArgsConstructor
 public class AdminBoardController {
 
+	@Setter(onMethod_ = @Autowired)
 	private AdminBoardService service;
 	
 	@GetMapping("/home")
 	public String goHome() {
-		return "redirect:/admin/home";
+		return "/admin/main";
 	}
-
 
 	@GetMapping("/freewrite")
 	public String write() {
@@ -37,7 +39,7 @@ public class AdminBoardController {
 	}
 
 	@PostMapping("/freewrite")
-	public String postWrite(AdminBoardDTO dto) throws Exception {
+	public String postWrite(AdminBoardDTO dto){
 		log.info("controller write run .... ");
 		service.write(dto);
 		return "redirect:/admin/freelist";
@@ -45,25 +47,32 @@ public class AdminBoardController {
 	
 	@GetMapping("/freelist")
 	public String list (Criteria cri , Model model ) {
+		int total = service.getTotal(cri);
+
 		log.info("list :" + cri);
-		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("aanoList", service.getList());
 		log.info("list : " + service.getList(cri));
 		log.info("aanoList : " + service.getList());
-		int total = service.getTotal(cri);
 		log.info("total : " + total);
+
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("aanoList", service.getList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 		return "/admin/board/freeboard";
 	}
 
 	@RequestMapping(value = "/freeread", method = RequestMethod.GET)
-	public String getRead(@RequestParam("bno") Long bno, Model model) {
+	public String getRead(@RequestParam("bno") Long bno, Criteria cri , Model model) {
+		int total = service.getReplyTotal(cri);
 		log.info("Get Read") ;
+		log.info("Get Paging Reply List: " + service.getReplyPagingList(cri)) ;
+
 		AdminBoardDTO dto = service.read(bno);
-
 		model.addAttribute("read", dto);
-
+		
+		// 댓글 불러오기 
+		model.addAttribute("reply" , service.getReplyPagingList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 		return "/admin/board/FreeBoardDetail";
 	}
 	
@@ -98,7 +107,15 @@ public class AdminBoardController {
 	}
 	
 	
-	//-------------------------------- Q&A 
+	//자유게시판 댓글 작성 
+	@PostMapping("/replywrite")
+	public String ReplyWrite(AdminReplyDTO dto) {
+		log.info("Reply Write : " + dto);
+		service.replywrite(dto);
+		return "redirect:/admin/freeread?bno="+dto.getBno();
+	}
+	
+	//----------------------------------------------------------- Q&A 
 	
 	
 	@GetMapping("/qnalist")
@@ -142,14 +159,6 @@ public class AdminBoardController {
 
 		return "redirect:/admin/qnalist";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

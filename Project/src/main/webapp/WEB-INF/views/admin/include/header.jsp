@@ -94,15 +94,15 @@
 							</ul></li>
 
 						<li class="nav-item dropdown"><a
-							class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+							class="nav-link dropdown-toggle" id="navbarDropdown" href=""
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">관리자
 								메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="/admin/freelist">게시판
+								<li><a class="dropdown-item" href="/admin_board/freelist">게시판
 										관리</a></li>
-								<li><a class="dropdown-item" href="/admin/qnalist">Q&A관리</a></li>
+								<li><a class="dropdown-item" href="/admin_board/qnalist">Q&A관리</a></li>
 								<li><a class="dropdown-item"
-									href="/admin/member_management">회원 관리</a></li>
+									href="/admin_member/management">회원 관리</a></li>
 								<li><a class="dropdown-item"
 									href="/admin/club_Applist">동호회  신청 목록</a></li>
 								<li><a class="dropdown-item" href="/admin/club_management">동호회
